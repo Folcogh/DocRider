@@ -20,7 +20,16 @@
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
-      <widget class="QTreeWidget" name="TreeDoc"/>
+      <widget class="QTreeWidget" name="TreeDoc">
+       <attribute name="headerVisible">
+        <bool>false</bool>
+       </attribute>
+       <column>
+        <property name="text">
+         <string notr="true">1</string>
+        </property>
+       </column>
+      </widget>
       <widget class="QWidget" name="DummyWidget" native="true"/>
      </widget>
     </item>

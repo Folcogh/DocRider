@@ -8,7 +8,9 @@ DlgEditCountry::DlgEditCountry(QWidget* parent, QString title, QString country)
 {
     ui->setupUi(this);
     setWindowTitle(title);
-    connect(ui->EditName, &QLineEdit::textChanged, [this]() { requestValidation(); });
+    connect(ui->EditName, &QLineEdit::textChanged, this, [this]() { requestValidation(); });
+    connect(ui->ButtonCancel, &QPushButton::clicked, this, [this]() { reject(); });
+    connect(ui->ButtonOK, &QPushButton::clicked, this, [this]() { accept(); });
 }
 
 DlgEditCountry::~DlgEditCountry()
@@ -31,6 +33,6 @@ Country* DlgEditCountry::newCountry(QWidget* parent)
 
 void DlgEditCountry::requestValidation()
 {
-    bool Valid = DocIndex::instance()->validateCountryName(ui->EditName->text());
+    bool Valid = DocIndex::instance()->validateNewCountryName(ui->EditName->text());
     ui->ButtonOK->setEnabled(Valid);
 }

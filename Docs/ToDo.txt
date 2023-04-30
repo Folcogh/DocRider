@@ -1,0 +1,2 @@
+- Put a place holder in the main screen when the DB is empty
+- Create icons to create Country/Customer/Line/Machine

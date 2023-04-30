@@ -3,9 +3,9 @@
 
 #include "../Index/DocIndex.hpp"
 #include "../UI/DlgEditCountry.hpp"
+#include "../UI/TreeWidgetCountry.hpp"
 #include <QMenu>
 #include <QTreeWidget>
-#include <QTreeWidgetItem>
 
 MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent)
@@ -21,7 +21,7 @@ MainWindow::MainWindow(QWidget* parent)
 
     // New Country
     QAction* ActionNewCountry = new QAction("New country", this);
-    connect(ActionNewCountry, &QAction::triggered, [this]() { newCountry(); });
+    connect(ActionNewCountry, &QAction::triggered, this, [this]() { newCountry(); });
 
     //
     // Tree context menu
@@ -43,7 +43,11 @@ void MainWindow::newCountry()
 {
     Country* country = DlgEditCountry::newCountry(this);
     if (country != nullptr) {
-        QTreeWidgetItem* item = new QTreeWidgetItem;
+        // DB
+        DocIndex::instance()->newCountry(country);
+
+        // UI
+        TreeWidgetCountry* item = new TreeWidgetCountry;
         item->setText(0, country->name());
         ui->TreeDoc->addTopLevelItem(item);
     }

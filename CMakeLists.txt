@@ -40,6 +40,15 @@ set(PROJECT_SOURCES
     UI/MainWindow.cpp
     UI/MainWindow.hpp
     UI/MainWindow.ui
+    UI/TreeWidgetCountry.cpp
+    UI/TreeWidgetCountry.hpp
+
+    #
+    # Doc files
+    #
+    Docs/Bugs.txt
+    Docs/Specs.txt
+    Docs/ToDo.txt
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

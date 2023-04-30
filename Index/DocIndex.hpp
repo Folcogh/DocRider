@@ -14,7 +14,8 @@ class DocIndex
   public:
     DocIndex();
     ~DocIndex();
-    bool validateCountryName(QString name) const;
+    bool validateNewCountryName(QString name) const;
+    void newCountry(Country* country);
 
     static DocIndex* docindex;
     QList<Country*> Countries;
