@@ -2,5 +2,4 @@
 
 TreeWidgetCountry::TreeWidgetCountry()
 {
-
 }

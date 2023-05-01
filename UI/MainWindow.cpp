@@ -23,14 +23,33 @@ MainWindow::MainWindow(QWidget* parent)
     QAction* ActionNewCountry = new QAction("New country", this);
     connect(ActionNewCountry, &QAction::triggered, this, [this]() { newCountry(); });
 
+    // New Customer
+    QAction* ActionNewCustomer = new QAction("New customer", this);
+    connect(ActionNewCustomer, &QAction::triggered, this, [this]() { newCustomer(); });
+
+    // New line
+    QAction* ActionNewLine = new QAction("New line", this);
+    connect(ActionNewLine, &QAction::triggered, this, [this]() { newLine(); });
+
+    // New machine
+    QAction* ActionNewMachine = new QAction("New country", this);
+    connect(ActionNewMachine, &QAction::triggered, this, [this]() { newMachine(); });
+
     //
     // Tree context menu
     //
     QList<QAction*> TreeContextMenu;
-    TreeContextMenu << ActionNewCountry;
+    TreeContextMenu << ActionNewCountry << ActionNewCustomer << ActionNewLine << ActionNewMachine;
 
     ui->TreeDoc->setContextMenuPolicy(Qt::ActionsContextMenu);
     ui->TreeDoc->addActions(TreeContextMenu);
+
+    // Update the available actions when the selection changes in the Tree
+    // - the root level allows to create a country
+    // - the country level allows to create a customer or a country
+    // - the customer level allows to create a line, a customer or a country
+    // - etc
+    connect(ui->TreeDoc, &QTreeWidget::itemSelectionChanged, this, [this]() { updateTreeContextMenu(); });
 }
 
 MainWindow::~MainWindow()
@@ -52,3 +71,15 @@ void MainWindow::newCountry()
         ui->TreeDoc->addTopLevelItem(item);
     }
 }
+
+void MainWindow::newCustomer()
+{}
+
+void MainWindow::newLine()
+{}
+
+void MainWindow::newMachine()
+{}
+
+void MainWindow::updateTreeContextMenu()
+{}

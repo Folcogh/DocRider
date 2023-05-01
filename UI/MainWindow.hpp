@@ -20,7 +20,13 @@ class MainWindow : public QMainWindow
 
   private:
     Ui::MainWindow* ui;
+
+    // Actions
     void newCountry();
+    void newCustomer();
+    void newLine();
+    void newMachine();
+    void updateTreeContextMenu();
 };
 
 #endif // MAINWINDOW_HPP
