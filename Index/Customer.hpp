@@ -3,16 +3,28 @@
 
 #include "Line.hpp"
 #include <QList>
+#include <QObject>
 #include <QString>
 
-class Customer
+class Country; // Forward declaration
+
+class Customer: public QObject
 {
+    Q_OBJECT
+
   public:
-    Customer();
+    Customer(Country* country, QString name);
+
+    QString  name() const { return Name; }                // Return the name of the customer
+    Country* country() const { return ParentCountry; }    // Return the parent country
+    bool     hasLine() const { return !Lines.isEmpty(); } // Return true if the customer has at least one line
 
   private:
-    QString Name;
+    Country*     ParentCountry;
+    QString      Name;
     QList<Line*> Lines;
 };
+
+Q_DECLARE_METATYPE(Customer*)
 
 #endif // CUSTOMER_HPP

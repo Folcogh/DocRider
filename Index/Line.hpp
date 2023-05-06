@@ -8,7 +8,7 @@
 class Line
 {
   public:
-    Line();
+    Line(QString name);
 
   private:
     QString Name;

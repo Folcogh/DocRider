@@ -37,11 +37,20 @@ set(PROJECT_SOURCES
     UI/DlgEditCountry.cpp
     UI/DlgEditCountry.hpp
     UI/DlgEditCountry.ui
+    UI/DlgEditCustomer.cpp
+    UI/DlgEditCustomer.hpp
+    UI/DlgEditCustomer.ui
     UI/MainWindow.cpp
     UI/MainWindow.hpp
     UI/MainWindow.ui
     UI/TreeWidgetCountry.cpp
     UI/TreeWidgetCountry.hpp
+    UI/TreeWidgetCustomer.cpp
+    UI/TreeWidgetCustomer.hpp
+    UI/TreeWidgetMachine.cpp
+    UI/TreeWidgetMachine.hpp
+    UI/TreeWidgetLine.cpp
+    UI/TreeWidgetLine.hpp
 
     #
     # Doc files

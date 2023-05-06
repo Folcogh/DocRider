@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>DlgEditCountry</class>
- <widget class="QDialog" name="DlgEditCountry">
+ <class>DlgEditCustomer</class>
+ <widget class="QDialog" name="DlgEditCustomer">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>300</width>
-    <height>74</height>
+    <height>102</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -18,16 +18,26 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <layout class="QFormLayout" name="FLayoutName">
+    <layout class="QFormLayout" name="FLayoutInput">
      <item row="0" column="0">
-      <widget class="QLabel" name="LabelName">
+      <widget class="QLabel" name="LabelCountry">
        <property name="text">
-        <string>Name:</string>
+        <string>Country:</string>
        </property>
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QLineEdit" name="EditName"/>
+      <widget class="QComboBox" name="ComboCountry"/>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="LabelCustomer">
+       <property name="text">
+        <string>Customer:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="EditCustomer"/>
      </item>
     </layout>
    </item>

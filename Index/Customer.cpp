@@ -1,7 +1,7 @@
 #include "Customer.hpp"
 
-Customer::Customer()
+Customer::Customer(Country* country, QString name)
+    : ParentCountry(country)
+    , Name(name)
 {
-
 }
-

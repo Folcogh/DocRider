@@ -1,1 +1,3 @@
 + There is a "1" in the widget MainWindow::TreeDoc (column name?)
+- DlgEditCountry: impossible to validate an existing name, forcing to change a name when editing it
+- DlgEditCountry: OK must be set according to the validation when creating the dialog (disabling should be removed from ui editor)

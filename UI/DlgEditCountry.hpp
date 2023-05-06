@@ -16,12 +16,17 @@ class DlgEditCountry : public QDialog
   public:
     static Country* newCountry(QWidget* parent);
     //    static bool editCountry(QWidget* parent, Country* country);
+    // Use a delegate constructor for editing a Country name
+    // Use also another validator
 
   private:
-    DlgEditCountry(QWidget* parent, QString title, QString country = nullptr);
+    DlgEditCountry(QWidget* parent, QString title, Country* country = nullptr); // country is null when editing the name of a new country
+                                                                                // country points to the country to be modified when changing the name
     ~DlgEditCountry();
+    void updateUI();
+    void updateUI(Country* country);
+
     Ui::DlgEditCountry* ui;
-    void requestValidation();
 };
 
 #endif // DLGEDITCOUNTRY_HPP

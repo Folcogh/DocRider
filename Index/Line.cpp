@@ -1,7 +1,7 @@
 #include "Line.hpp"
 
-Line::Line()
+Line::Line(QString name)
+    : Name(name)
 {
 
 }
-

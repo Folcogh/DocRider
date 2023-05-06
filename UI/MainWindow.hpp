@@ -3,6 +3,7 @@
 
 #include <QAction>
 #include <QMainWindow>
+#include <QTreeWidget>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -21,12 +22,39 @@ class MainWindow : public QMainWindow
   private:
     Ui::MainWindow* ui;
 
-    // Actions
+    //
+    //          Actions
+    //
+
+    // Context menu handling
+    void updateTreeContextMenu();
+
+    // Actions handlers
     void newCountry();
     void newCustomer();
     void newLine();
     void newMachine();
-    void updateTreeContextMenu();
+
+    // The actions themselves. They are members,maybe we need them somewhere else than in the constructor
+    QAction* ActionNewCountry;
+    QAction* ActionNewCustomer;
+    QAction* ActionNewLine;
+    QAction* ActionNewMachine;
+};
+
+// Define the type of the QTreeWidgetItems added in the Tree
+enum {
+    TYPE_COUNTRY = QTreeWidgetItem::UserType,
+    TYPE_CUSTOMER,
+    TYPE_LINE,
+    TYPE_MACHINE
+};
+
+enum {
+    RoleCountry = Qt::UserRole,
+    RoleCustomer,
+    RoleLine,
+    RoleMachine
 };
 
 #endif // MAINWINDOW_HPP
