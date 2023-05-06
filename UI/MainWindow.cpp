@@ -1,8 +1,13 @@
 #include "MainWindow.hpp"
+#include "../Index/Country.hpp"
+#include "../Index/Customer.hpp"
 #include "../Index/DocIndex.hpp"
+#include "../Index/Line.hpp"
+#include "../Index/Machine.hpp"
 #include "./ui_MainWindow.h"
 #include "DlgEditCountry.hpp"
 #include "DlgEditCustomer.hpp"
+#include "DlgEditLine.hpp"
 #include "TreeWidgetCountry.hpp"
 #include "TreeWidgetCustomer.hpp"
 #include "TreeWidgetLine.hpp"
@@ -109,6 +114,7 @@ void MainWindow::newCustomer()
 
 void MainWindow::newLine()
 {
+    Line* line = DlgEditLine::newLine(this);
     updateTreeContextMenu();
 }
 

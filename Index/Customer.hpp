@@ -18,6 +18,8 @@ class Customer: public QObject
     QString  name() const { return Name; }                // Return the name of the customer
     Country* country() const { return ParentCountry; }    // Return the parent country
     bool     hasLine() const { return !Lines.isEmpty(); } // Return true if the customer has at least one line
+    bool     validateNewLineName(QString name) const;
+    bool     validateEditLineName(Line* line, QString name);
 
   private:
     Country*     ParentCountry;

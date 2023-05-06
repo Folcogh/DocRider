@@ -18,6 +18,7 @@ class Country: public QObject
     bool    validateNewCustomerName(QString customer);
     bool    validateEditedCustomerName(Customer* customer, QString CustomerName);
     void    addCustomer(Customer* customer) { Customers.append(customer); }
+    QList<Customer*> customerList() const { return Customers; }
 
   private:
     QString          Name;

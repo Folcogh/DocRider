@@ -48,6 +48,7 @@ Customer* DlgEditCustomer::newCustomer(QWidget* parent)
         QString  name    = dlg->ui->EditCustomer->text();
         customer         = new Customer(country, name);
     }
+    delete dlg;
     return customer;
 }
 

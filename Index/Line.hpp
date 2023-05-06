@@ -5,13 +5,18 @@
 #include <QList>
 #include <QString>
 
+class Customer;
+
 class Line
 {
   public:
     Line(QString name);
+    Customer* customer() const { return ParentCustomer; }
+    QString   name() const { return Name; }
 
   private:
-    QString Name;
+    Customer*       ParentCustomer;
+    QString         Name;
     QList<Machine*> Machines;
 };
 

@@ -39,7 +39,6 @@ Country* DlgEditCountry::newCountry(QWidget* parent)
         country = new Country(dlg->ui->EditName->text());
     }
     delete dlg;
-
     return country;
 }
 

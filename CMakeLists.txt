@@ -40,6 +40,9 @@ set(PROJECT_SOURCES
     UI/DlgEditCustomer.cpp
     UI/DlgEditCustomer.hpp
     UI/DlgEditCustomer.ui
+    UI/DlgEditLine.cpp
+    UI/DlgEditLine.hpp
+    UI/DlgEditLine.ui
     UI/MainWindow.cpp
     UI/MainWindow.hpp
     UI/MainWindow.ui
