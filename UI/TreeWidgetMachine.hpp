@@ -1,10 +1,7 @@
-
 #ifndef TREEWIDGETMACHINE_HPP
-  #define TREEWIDGETMACHINE_HPP
+#define TREEWIDGETMACHINE_HPP
 
-  #include <QTreeWidgetItem>
-
-
+#include <QTreeWidgetItem>
 
 class TreeWidgetMachine : public QTreeWidgetItem
 {

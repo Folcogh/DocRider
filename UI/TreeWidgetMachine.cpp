@@ -4,5 +4,4 @@
 TreeWidgetMachine::TreeWidgetMachine()
     : QTreeWidgetItem(TYPE_MACHINE)
 {
-
 }

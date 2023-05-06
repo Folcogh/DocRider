@@ -50,6 +50,7 @@ enum {
     TYPE_MACHINE
 };
 
+// Define the role of the QTreeWidgetItems added in the Tree
 enum {
     RoleCountry = Qt::UserRole,
     RoleCustomer,

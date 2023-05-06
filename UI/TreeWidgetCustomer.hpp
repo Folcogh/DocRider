@@ -1,10 +1,7 @@
-
 #ifndef TREEWIDGETCUSTOMER_HPP
-  #define TREEWIDGETCUSTOMER_HPP
+#define TREEWIDGETCUSTOMER_HPP
 
-  #include <QTreeWidgetItem>
-
-
+#include <QTreeWidgetItem>
 
 class TreeWidgetCustomer : public QTreeWidgetItem
 {

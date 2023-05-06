@@ -4,5 +4,4 @@
 TreeWidgetLine::TreeWidgetLine()
     : QTreeWidgetItem(TYPE_LINE)
 {
-
 }

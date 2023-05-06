@@ -4,5 +4,4 @@
 TreeWidgetCustomer::TreeWidgetCustomer()
     : QTreeWidgetItem(TYPE_CUSTOMER)
 {
-
 }

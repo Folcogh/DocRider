@@ -1,10 +1,7 @@
-
 #ifndef TREEWIDGETLINE_HPP
-  #define TREEWIDGETLINE_HPP
+#define TREEWIDGETLINE_HPP
 
-  #include <QTreeWidgetItem>
-
-
+#include <QTreeWidgetItem>
 
 class TreeWidgetLine : public QTreeWidgetItem
 {
