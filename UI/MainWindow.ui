@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>274</width>
-    <height>253</height>
+    <width>910</width>
+    <height>683</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,21 +16,61 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QSplitter" name="VSplitter">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
+     <widget class="QTabWidget" name="Tabs">
+      <property name="currentIndex">
+       <number>0</number>
       </property>
-      <widget class="QTreeWidget" name="TreeDoc">
-       <attribute name="headerVisible">
-        <bool>false</bool>
+      <widget class="QWidget" name="TabMachine">
+       <attribute name="title">
+        <string>Machines</string>
        </attribute>
-       <column>
-        <property name="text">
-         <string notr="true">1</string>
-        </property>
-       </column>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <layout class="QHBoxLayout" name="HLayoutSearch">
+          <item>
+           <widget class="QLabel" name="LabelSearch">
+            <property name="text">
+             <string>Search:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="EditSearch"/>
+          </item>
+          <item>
+           <widget class="QPushButton" name="ButtonSearch">
+            <property name="text">
+             <string>Search</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="HSpacerSearch">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="ButtonNewMachine">
+            <property name="text">
+             <string>New machine</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QTableWidget" name="TableMachines"/>
+        </item>
+       </layout>
       </widget>
-      <widget class="QWidget" name="DummyWidget" native="true"/>
      </widget>
     </item>
    </layout>
@@ -40,7 +80,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>274</width>
+     <width>910</width>
      <height>22</height>
     </rect>
    </property>

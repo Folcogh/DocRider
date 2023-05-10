@@ -16,44 +16,20 @@ set(PROJECT_SOURCES
     main.cpp
 
     #
-    # The Index folder contains the files related to the database handler
+    # Data
     #
-    Index/Country.cpp
-    Index/Country.hpp
-    Index/Customer.cpp
-    Index/Customer.hpp
-    Index/DocIndex.cpp
-    Index/DocIndex.hpp
-    Index/Document.cpp
-    Index/Document.hpp
-    Index/Machine.cpp
-    Index/Machine.hpp
-    Index/Line.cpp
-    Index/Line.hpp
+    Machines/Machine.cpp
+    Machines/Machine.hpp
 
     #
-    # The UI folder contains... UI files!
+    # UI
     #
-    UI/DlgEditCountry.cpp
-    UI/DlgEditCountry.hpp
-    UI/DlgEditCountry.ui
-    UI/DlgEditCustomer.cpp
-    UI/DlgEditCustomer.hpp
-    UI/DlgEditCustomer.ui
-    UI/DlgEditLine.cpp
-    UI/DlgEditLine.hpp
-    UI/DlgEditLine.ui
+    UI/DlgNewMachine.cpp
+    UI/DlgNewMachine.hpp
+    UI/DlgNewMachine.ui
     UI/MainWindow.cpp
     UI/MainWindow.hpp
     UI/MainWindow.ui
-    UI/TreeWidgetCountry.cpp
-    UI/TreeWidgetCountry.hpp
-    UI/TreeWidgetCustomer.cpp
-    UI/TreeWidgetCustomer.hpp
-    UI/TreeWidgetMachine.cpp
-    UI/TreeWidgetMachine.hpp
-    UI/TreeWidgetLine.cpp
-    UI/TreeWidgetLine.hpp
 
     #
     # Doc files
