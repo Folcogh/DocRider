@@ -18,8 +18,10 @@ set(PROJECT_SOURCES
     #
     # Data
     #
-    Machines/Machine.cpp
-    Machines/Machine.hpp
+    Machine/Database.cpp
+    Machine/Database.hpp
+    Machine/Machine.cpp
+    Machine/Machine.hpp
 
     #
     # UI
@@ -34,9 +36,9 @@ set(PROJECT_SOURCES
     #
     # Doc files
     #
-    Docs/Bugs.txt
-    Docs/Specs.txt
-    Docs/ToDo.txt
+    Doc/Bugs.txt
+    Doc/Specs.txt
+    Doc/ToDo.txt
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

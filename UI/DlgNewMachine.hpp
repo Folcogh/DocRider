@@ -1,7 +1,9 @@
 #ifndef DLGNEWMACHINE_HPP
 #define DLGNEWMACHINE_HPP
 
+#include "../Machine/Machine.hpp"
 #include <QDialog>
+#include <QString>
 
 namespace Ui {
 class DlgNewMachine;
@@ -11,12 +13,16 @@ class DlgNewMachine : public QDialog
 {
     Q_OBJECT
 
-public:
-    explicit DlgNewMachine(QWidget *parent = nullptr);
+  public:
+    static Machine* newMachine(QWidget* parent);
     ~DlgNewMachine();
 
-private:
-    Ui::DlgNewMachine *ui;
+  private:
+    Ui::DlgNewMachine* ui;
+    DlgNewMachine(QWidget* parent, QString title, Machine* machine = nullptr);
+    void updateButtonOK();
+    void updateCustomerList();
+    void updateLineList();
 };
 
 #endif // DLGNEWMACHINE_HPP
