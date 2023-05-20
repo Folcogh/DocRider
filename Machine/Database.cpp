@@ -36,27 +36,27 @@ void Database::release()
 
 Machine* Database::nextMachine()
 {
-    return this->MachineIterator == this->MachineList.size() ? nullptr : this->MachineList.at(this->MachineIterator++);
+    return this->MachineIterator == this->MachineList.size()
+               ? nullptr
+               : this->MachineList.at(this->MachineIterator++);
 }
 
-Machine* Database::newMachine(QString type, int serial1, int serial2, int devstep, QString country, QString customer, QString line)
+bool Database::requestNewMachine(QString type,
+                                 int serial1,
+                                 int serial2,
+                                 int devstep,
+                                 QString country,
+                                 QString customer,
+                                 QString line)
 {
     // Check if the machine already exists
     for (int i = 0; i < this->MachineList.size(); i++) {
-        if ((this->MachineList.at(i)->serialNumber1() == serial1) && (this->MachineList.at(i)->serialNumber2() == serial2))
-            return nullptr;
+        if ((this->MachineList.at(i)->serialNumber1() == serial1)
+            && (this->MachineList.at(i)->serialNumber2() == serial2)) {
+            return false;
+        }
     }
-
-    // Else the machine doesn't exist yet, add it to the base
-    Machine* machine = new Machine(type, serial1, serial2, devstep, country, customer, line);
-
-    // Safety check, don't add the machine if its creation failed
-    // No diag because, just ensure database consistency
-    if (machine != nullptr) {
-        this->MachineList << machine;
-    }
-
-    return machine;
+    return true;
 }
 
 QList<QString> Database::countryList() const

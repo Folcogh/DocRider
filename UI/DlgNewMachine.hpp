@@ -14,8 +14,9 @@ class DlgNewMachine : public QDialog
     Q_OBJECT
 
   public:
-    static Machine* newMachine(QWidget* parent);
-    ~DlgNewMachine();
+      static Machine* newMachine(QWidget* parent);
+      static bool editMachine(QWidget* parent, Machine* machine);
+      ~DlgNewMachine();
 
   private:
     Ui::DlgNewMachine* ui;

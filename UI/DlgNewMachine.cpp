@@ -59,17 +59,17 @@ Machine* DlgNewMachine::newMachine(QWidget* parent)
     DlgNewMachine* dlg = new DlgNewMachine(parent, tr("New machine"));
     if (dlg->exec() == QDialog::Accepted) {
         // Create the machine if the dialog was validated
-        machine = Database::instance()->newMachine(dlg->ui->ComboType->currentText(),
-                                                   dlg->ui->SpinSN1->value(),
-                                                   dlg->ui->SpinSN2->value(),
-                                                   dlg->ui->SpinDevStep->value(),
-                                                   dlg->ui->ComboCountry->currentText(),
-                                                   dlg->ui->ComboCustomer->currentText(),
-                                                   dlg->ui->ComboLine->currentText());
+        machine = Machine::newMachine(dlg->ui->ComboType->currentText(),
+                                      dlg->ui->SpinSN1->value(),
+                                      dlg->ui->SpinSN2->value(),
+                                      dlg->ui->SpinDevStep->value(),
+                                      dlg->ui->ComboCountry->currentText(),
+                                      dlg->ui->ComboCustomer->currentText(),
+                                      dlg->ui->ComboLine->currentText());
 
         // Check that the machine was successfully created
         // A failure means that the machine already exists,
-        // or we are out memory, but there is no diag for this
+        // or we are out memory (but there is no diagnostic for this)
         if (machine == nullptr) {
             int SN1 = dlg->ui->SpinSN1->value();
             int SN2 = dlg->ui->SpinSN2->value();
@@ -80,6 +80,23 @@ Machine* DlgNewMachine::newMachine(QWidget* parent)
 
     delete dlg;
     return machine;
+}
+
+bool DlgNewMachine::editMachine(QWidget* parent, Machine* machine)
+{
+    bool ret = false;
+    DlgNewMachine* dlg = new DlgNewMachine(parent, tr("Edit machine"), machine);
+    if (dlg->exec() == QDialog::Accepted) {
+        machine->modifyMachine(dlg->ui->ComboType->currentText(),
+                               dlg->ui->SpinDevStep->value(),
+                               dlg->ui->ComboCountry->currentText(),
+                               dlg->ui->ComboCustomer->currentText(),
+                               dlg->ui->ComboLine->currentText());
+
+        ret = true;
+    }
+    delete dlg;
+    return ret;
 }
 
 void DlgNewMachine::updateButtonOK()

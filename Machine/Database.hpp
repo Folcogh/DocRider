@@ -10,15 +10,23 @@ class Database
   public:
     static Database* instance(); // singleton
     static void      release();  // singleton
-    Machine*         newMachine(QString type, int serial1, int serial2, int devstep, QString country, QString customer, QString line);
+    bool requestNewMachine(QString type,
+                           int serial1,
+                           int serial2,
+                           int devstep,
+                           QString country,
+                           QString customer,
+                           QString line);
 
     // Accessors
     QList<QString> countryList() const;
     QList<QString> typeList() const;
-    void           startMachineIteration() { MachineIterator = 0; }
-    Machine*       nextMachine();
 
-  private:
+    // Machine list iteration
+    void startMachineIteration() { MachineIterator = 0; }
+    Machine* nextMachine();
+
+private:
     // Singleton stuff
     Database();
     ~Database();

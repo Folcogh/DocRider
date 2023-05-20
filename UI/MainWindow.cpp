@@ -62,11 +62,10 @@ void MainWindow::addMachineInMainUI(Machine* machine)
     QTableWidgetItem* ItemCreated  = new QTableWidgetItem(machine->created().toString());
     QTableWidgetItem* ItemModified = new QTableWidgetItem(machine->lastModified().toString());
 
-    ItemType->setData(DATA_ROLE, QVariant::fromValue<Machine*>(machine));
+    ui->TableMachines->blockSignals(true); // Prevent sorting while the table is updated
 
     int Row = ui->TableMachines->rowCount();
     ui->TableMachines->setRowCount(Row + 1);
-    ui->TableMachines->blockSignals(true); // Prevent sorting while the table is updated
     ui->TableMachines->setItem(Row, COLUMN_MACHINE_TYPE, ItemType);
     ui->TableMachines->setItem(Row, COLUMN_SERIAL, ItemSN);
     ui->TableMachines->setItem(Row, COLUMN_DEVSTEP, ItemDevStep);
@@ -75,9 +74,34 @@ void MainWindow::addMachineInMainUI(Machine* machine)
     ui->TableMachines->setItem(Row, COLUMN_COUNTRY, ItemCountry);
     ui->TableMachines->setItem(Row, COLUMN_CREATED, ItemCreated);
     ui->TableMachines->setItem(Row, COLUMN_MODIFIED, ItemModified);
-    ui->TableMachines->blockSignals(false);
+
+    // Set the Machine ptr to the dedicated item
+    ui->TableMachines->item(Row, COLUMN_DATA)
+        ->setData(DATA_ROLE, QVariant::fromValue<Machine*>(machine));
+
+    ui->TableMachines->blockSignals(false); // Enable again the signals
 }
 
 void MainWindow::machineDoubleClicked()
 {
+    Machine* machine;
+    QList<QTableWidgetItem*> Selection = ui->TableMachines->selectedItems();
+    int Row = Selection.at(0)->row();
+    for (int i = 0; i < Selection.size(); i++) {
+        QTableWidgetItem* item = Selection.at(i);
+        if (item->column() == COLUMN_DATA) {
+            machine = item->data(DATA_ROLE).value<Machine*>();
+            if (DlgNewMachine::editMachine(this, machine)) {
+                ui->TableMachines->item(Row, COLUMN_MACHINE_TYPE)->setText(machine->type());
+                ui->TableMachines->item(Row, COLUMN_DEVSTEP)
+                    ->setText(QString("%1").arg(machine->devStep()));
+                ui->TableMachines->item(Row, COLUMN_COUNTRY)->setText(machine->country());
+                ui->TableMachines->item(Row, COLUMN_CUSTOMER)->setText(machine->customer());
+                ui->TableMachines->item(Row, COLUMN_LINE)->setText(machine->line());
+                ui->TableMachines->item(Row, COLUMN_MODIFIED)
+                    ->setText(machine->lastModified().toString());
+            }
+            break;
+        }
+    }
 }

@@ -40,6 +40,7 @@ enum {
 };
 
 // Attach Machine* to UI elements
+#define COLUMN_DATA 0
 #define DATA_ROLE Qt::UserRole
 Q_DECLARE_METATYPE(Machine*)
 
